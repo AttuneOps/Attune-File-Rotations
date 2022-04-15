@@ -1,0 +1,6 @@
+{
+    "key": "dayofthemonth", 
+    "name": "Day of the Month", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

@@ -1,0 +1,6 @@
+{
+    "key": "windowsuser", 
+    "name": "Windows User", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.WinOsCred"
+}

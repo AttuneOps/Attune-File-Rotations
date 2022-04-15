@@ -1,0 +1,40 @@
+$directoryLocation = "{filesDirectoryLocation}{filesDirectoryName}"
+$daysRotation = {daysRotation}
+$weeksRotation = {weeksRotation}
+$monthsRotation = {monthsRotation}
+$dayOfTheWeek = {dayOfTheWeek}
+$dayOfTheMonth = {dayOfTheMonth}
+
+$date = Get-Date
+
+Write-Host "Rotating the root files: "$directoryLocation
+Write-Host "========================"
+$files = Get-ChildItem "$directoryLocation" | `
+Where-Object {$_.Attributes -ne "directory"} | `
+Sort-Object LastWriteTime -Descending
+
+if ($files) {
+    $files | ForEach-Object -Process {
+        $fileDate = Get-Date $_.LastWriteTime
+        if ($fileDate -ge $date.AddDays(-$daysRotation)) {
+            Write-Host "Rotating to daily: $_"
+            Copy-Item "$directoryLocation\$_" `
+            -Destination "$directoryLocation\daily"
+        }
+        if ($fileDate -ge $date.AddDays(-$weeksRotation*7) `
+        -and [int]$fileDate.DayOfWeek -eq $dayOfWeek) {
+            Write-Host "Rotating to weekly: $_"
+            Copy-Item "$directoryLocation\$_" `
+            -Destination "$directoryLocation\weekly"
+        }
+        if ($fileDate -ge $date.AddDays(-$monthsRotation*30) `
+        -and [int]$fileDate.DayOfWeek -eq $dayOfMonth) {
+            Write-Host "Rotating to monthly: $_"
+            Copy-Item "$directoryLocation\$_" `
+            -Destination "$directoryLocation\monthly"
+        }
+        Remove-Item "$directoryLocation\$_"
+    }
+} else {
+    Write-Host "There are no files in " $directoryLocation " to rotate."
+}

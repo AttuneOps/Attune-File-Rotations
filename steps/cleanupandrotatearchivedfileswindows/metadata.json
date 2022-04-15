@@ -1,0 +1,22 @@
+{
+    "concurrency": 3, 
+    "enabled": true, 
+    "isBlueprint": false, 
+    "key": "cleanupandrotatearchivedfileswindows", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "cleanupandrotatedailyfileswindows"
+        }, 
+        {
+            "order": 20, 
+            "stepKey": "cleanupandrotateweeklyfileswindows"
+        }, 
+        {
+            "order": 40, 
+            "stepKey": "cleanupandrotatemonthlyfileswindows"
+        }
+    ], 
+    "name": "Cleanup and Rotate Archived Files - Windows", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

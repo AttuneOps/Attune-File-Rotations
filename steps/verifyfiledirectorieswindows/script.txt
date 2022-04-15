@@ -1,0 +1,15 @@
+$directoryLocation = "{filesDirectoryLocation}"
+$directoryName = "{filesDirectoryName}"
+
+Write-Host "Verify that the $directoryName directory: $directoryLocation$directoryName exists."
+if ( !(Test-Path $directoryLocation$directoryName) ) {
+    Write-Host "The $directoryName directory doesn't exist!"
+    New-Item -Path $directoryLocation -Name $directoryName -ItemType "directory"
+    if ( !(Test-Path $directoryLocation$directoryName) ) {
+        Write-Error "Creating directory $directoryLocation$directoryName was unsuccessful."
+    } else {
+        Write-Host "The $directoryName directory: $directoryLocation$directoryName has been successfully created!"
+    }
+} else {
+    Write-Host "The $directoryName directory: $directoryLocation$directoryName exists!"
+}

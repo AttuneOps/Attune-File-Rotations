@@ -1,0 +1,1 @@
+The number of months in rotation. Example: "3"

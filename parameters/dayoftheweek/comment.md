@@ -1,0 +1,1 @@
+The day of the week 1 to 7 where 1 is Sunday. Example: "7"

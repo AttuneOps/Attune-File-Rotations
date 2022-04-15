@@ -1,0 +1,25 @@
+$directoryLocation = "{filesDirectoryLocation}{filesDirectoryName}\daily"
+$daysRotation = {daysRotation}
+
+$date = Get-Date
+
+Write-Host "Rotating the daily files: "$directoryLocation
+Write-Host "========================"
+$files = Get-ChildItem "$directoryLocation" | `
+Where-Object {$_.Attributes -ne "directory"} | `
+Sort-Object LastWriteTime -Descending
+
+if ($files) {
+    $files | ForEach-Object -Process {
+        $fileDate = Get-Date $_.LastWriteTime
+        if ($fileDate -le $date.AddDays(-$daysRotation)) {
+            Write-Host "Removing: "$_
+            Remove-Item "$directoryLocation\$_"
+        } else {
+            Write-Host "File: " $_ " is within the " $daysRotation `
+            " days rotation."
+        }
+    }
+} else {
+    Write-Host "There are no files in " $directoryLocation " to rotate."
+}

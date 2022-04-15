@@ -1,0 +1,1 @@
+The following steps in this group to rotate the archived files can be run in parallel and are configured to do so in Attune.

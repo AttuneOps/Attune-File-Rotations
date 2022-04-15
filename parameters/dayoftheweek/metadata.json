@@ -1,0 +1,6 @@
+{
+    "key": "dayoftheweek", 
+    "name": "Day of the week", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

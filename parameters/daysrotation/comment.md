@@ -1,0 +1,1 @@
+The number of days in rotation. Example: "3"

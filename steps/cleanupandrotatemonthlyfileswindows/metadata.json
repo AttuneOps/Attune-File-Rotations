@@ -1,0 +1,14 @@
+{
+    "enabled": true, 
+    "interpreter": 2, 
+    "interpreterCommand": null, 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": "powershell", 
+    "key": "cleanupandrotatemonthlyfileswindows", 
+    "name": "Cleanup and Rotate Monthly Files - Windows", 
+    "osCredKey": "windowsuser", 
+    "serverKey": "windowsnode", 
+    "successExitCode": 0, 
+    "timeout": null, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}
