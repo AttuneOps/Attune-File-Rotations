@@ -1,6 +1,8 @@
 {
+    "actionOnStepFail": null, 
     "concurrency": 3, 
     "enabled": true, 
+    "externalUuid4": "7a22c2a4-04c5-460f-b3c4-c7d6f6c34ae7", 
     "isBlueprint": false, 
     "key": "cleanupandrotatearchivedfileswindows", 
     "links": [
